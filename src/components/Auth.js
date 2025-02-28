@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { auth, provider, signInWithPopup, signOut } from "../firebaseConfig";
+import { auth, provider, signInWithPopup, signOut } from "../FirebaseConfig";
 
 function Auth() {
   const [user, setUser] = useState(null);
