@@ -27,7 +27,7 @@ function App() {
         </p>
       </div>
       <div>
-      <h1>React App with Google Authentication</h1>
+      <h3>React App with Google Authentication</h3>
       <Auth />
     </div>
       <p className="read-the-docs">

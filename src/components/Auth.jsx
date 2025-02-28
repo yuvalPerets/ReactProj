@@ -1,12 +1,9 @@
-import { useEffect, useState } from "react";
-import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
-import { auth, provider, signOut } from "../FirebaseConfig"; // Ensure this path is correct
+import { useState } from "react";
+import { signInWithPopup } from "firebase/auth";
+import { auth, provider } from "../FirebaseConfig"; // Ensure this path is correct
 
 const Auth = () => {
   const [user, setUser] = useState(null);
-
-  const auth = getAuth(app);
-  const provider = new GoogleAuthProvider();
 
   const signInWithGoogle = async () => {
     try {
