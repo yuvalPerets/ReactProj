@@ -1,35 +1,34 @@
-import { useState } from "react";
-import { auth, provider, signInWithPopup, signOut } from "../FirebaseConfig";
+import { useEffect, useState } from "react";
+import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import app from "../FirebaseConfig"; // Ensure this path is correct
 
-function Auth() {
+const Auth = () => {
   const [user, setUser] = useState(null);
 
-  const signIn = async () => {
+  const auth = getAuth(app);
+  const provider = new GoogleAuthProvider();
+
+  const signInWithGoogle = async () => {
     try {
       const result = await signInWithPopup(auth, provider);
       setUser(result.user);
     } catch (error) {
-      console.error(error);
+      console.error("Google Sign-In Error:", error);
     }
-  };
-
-  const logOut = async () => {
-    await signOut(auth);
-    setUser(null);
   };
 
   return (
     <div>
       {user ? (
         <div>
-          <h3>Welcome, {user.displayName}</h3>
-          <button onClick={logOut}>Log Out</button>
+          <h2>Welcome, {user.displayName}</h2>
+          <img src={user.photoURL} alt="Profile" />
         </div>
       ) : (
-        <button onClick={signIn}>Sign in with Google</button>
+        <button onClick={signInWithGoogle}>Sign in with Google</button>
       )}
     </div>
   );
-}
+};
 
 export default Auth;
