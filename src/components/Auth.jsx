@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
-import { auth, provider, signInWithPopup, signOut } from "../FirebaseConfig"; // Ensure this path is correct
+import { auth, provider, signOut } from "../FirebaseConfig"; // Ensure this path is correct
 
 const Auth = () => {
   const [user, setUser] = useState(null);
